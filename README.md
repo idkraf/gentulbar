@@ -16,6 +16,15 @@ if for production use
 npm run production
 ```
 
+# install and setup laravel
+- setup .env
+- pastikan database mysql or postgre dibuat dan isi database pada .env
+- setup migration for fresh install database
+```
+php artisan migrate:fresh --seed
+```
+pastikan ini instalasi awal untuk mengisi database. jika perintah ini digunakan maka otomatis jika ada database yang pernah ada akan di hapus dan diulang dengan database baru
+
 # set git Jika menggunakan ssh
 - if cant push then add agent with ssh
 ```
