@@ -1,3 +1,21 @@
+# install
+- install composer 2. find or serach how to install composer for laravel in youtube
+```
+composer install
+```
+- install npm
+```
+npm install
+```
+- build npm
+```
+npm run dev
+```
+if for production use
+```
+npm run production
+```
+
 # set git Jika menggunakan ssh
 - if cant push then add agent with ssh
 ```
