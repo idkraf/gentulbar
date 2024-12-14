@@ -1,4 +1,4 @@
-# set git
+# set git Jika menggunakan ssh
 - if cant push then add agent with ssh
 ```
 ssh-add ~/.ssh/id_rsa_dell
@@ -28,5 +28,5 @@ git remote -v
 ```
 if no remote then add 
 ```
-git remote set-url origin git@gitlab.com:dpt-tps/quickcount-metronic.git
+git remote set-url origin https://github.com/idkraf/gentulbar.git
 ```

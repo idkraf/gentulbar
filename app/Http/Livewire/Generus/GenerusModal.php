@@ -26,7 +26,7 @@ class GenerusModal extends Component
     public $ayah;
     public $ibu;
     public $nohp;
-    public $alamat_rumah;
+    public $alamat;
     public $kelompok;
     public $desa;
     //status
@@ -47,6 +47,7 @@ class GenerusModal extends Component
             'id_generus' => 'required',
             'nama' => 'required',
             'gender' => 'required',
+            'alamat' => 'required',
 
             'jenjang' => 'required|exists:jenjang,id',
             'kelompok' => 'required|exists:kelompok,id',

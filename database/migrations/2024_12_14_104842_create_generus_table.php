@@ -15,9 +15,20 @@ return new class extends Migration
             $table->id();
             $table->string('nama')->nullable();
             $table->string('gender')->nullable();
-            $table->int('jenjang')->nullable();
-            $table->int('desa')->nullable();
-            $table->int('kelompok')->nullable();
+            $table->int('jenjang')->default(0);
+            $table->int('desa')->default(0);
+            $table->int('kelompok')->default(0);
+            $table->string('kelaskbm')->nullable();
+            $table->string('nig')->nullable();
+            $table->string('ttl')->nullable();
+            $table->string('ayah')->nullable();
+            $table->string('ibu')->nullable();
+            $table->string('nohp')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('sekolah')->nullable();
+            $table->string('mondok')->nullable();
+            $table->string('tugas')->nullable();
+            $table->string('kerja')->nullable();
             $table->timestamps();
         });
     }
