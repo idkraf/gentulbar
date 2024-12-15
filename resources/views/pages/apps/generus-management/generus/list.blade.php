@@ -8,12 +8,12 @@
         <!--begin::Card header-->
         <div class="card-header border-0 pt-6">
 
-            @can('create tps')
+            @can('create generus')
             <div class="card-title">
                 <!--begin::Search-->
                 <div class="d-flex align-items-center position-relative my-1">
                     {!! getIcon('magnifier','fs-3 position-absolute ms-5') !!}
-                    <input type="text" data-kt-tps-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search Generus" id="mySearchInput"/>
+                    <input type="text" data-kt-generus-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search Generus" id="mySearchInput"/>
                 </div>
                 <!--end::Search-->
             </div>
@@ -25,8 +25,8 @@
                         Add Generus
                     </button>
                 </div>
-                <livewire:generus.add-generus-modal></livewire:generus.add-generus-modal>
-                <livewire:generus.edit-generus-modal></livewire:generus.edit-generus-modal>
+                {{-- <livewire:generus.add-generus-modal></livewire:generus.add-generus-modal>
+                <livewire:generus.edit-generus-modal></livewire:generus.edit-generus-modal> --}}
             </div>
             
 		    @endcan
@@ -40,7 +40,7 @@
         </div>
     </div>
     
-    <livewire:tps.edit-tps-modal></livewire:tps.edit-tps-modal>
+    <livewire:generus.generus-modal></livewire:generus.generus-modal>
     
     @push('scripts')
         {{ $dataTable->scripts() }}
@@ -50,8 +50,8 @@
             });
             document.addEventListener('livewire:load', function () {
                 Livewire.on('success', function () {
-                    $('#kt_modal_add_generus').modal('hide');
-                    $('#kt_modal_edit_generus').modal('hide');
+                    $('#kt_modal_generus').modal('hide');
+                    // $('#kt_modal_edit_generus').modal('hide');
                     window.LaravelDataTables['generus-table'].ajax.reload();
                 });
             });

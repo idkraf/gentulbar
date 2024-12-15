@@ -5,9 +5,6 @@ namespace App\Http\Controllers\Apps;
 use App\DataTables\GenerusDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Generus;
-use App\Models\User;
-use App\Models\City;
-use App\Models\District;
 use Illuminate\Http\Request;
 
 class GenerusManagementController extends Controller
@@ -23,7 +20,7 @@ class GenerusManagementController extends Controller
      */
     public function index(GenerusDataTable $dataTable)
     {
-        return $dataTable->render('pages/apps.dpt-management.list');
+        return $dataTable->render('pages/apps.generus-management.generus.list');
     }
 
     /**
@@ -45,15 +42,15 @@ class GenerusManagementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Dpt $dpt)
+    public function show(Generus $generus)
     {
-        return view('pages/apps.dpt-management.show', compact('dpt'));
+        return view('pages/apps.generus-management.generus.show', compact('generus'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Dpt $dpt)
+    public function edit(Generus $generus)
     {
         //
     }
@@ -61,7 +58,7 @@ class GenerusManagementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Dpt $dpt)
+    public function update(Request $request, Generus $dpt)
     {
         //
     }
@@ -69,7 +66,7 @@ class GenerusManagementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Dpt $dpt)
+    public function destroy(Generus $dpt)
     {
         //
     }

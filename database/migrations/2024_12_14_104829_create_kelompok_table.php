@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('kelompok', function (Blueprint $table) {
             $table->id();
+            $table->integer('desa');
             $table->string('nama')->nullable();
             $table->timestamps();
         });

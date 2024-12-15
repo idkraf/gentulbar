@@ -10,4 +10,8 @@ class Kelompok extends Model
     use HasFactory;
     protected $table = "kelompok";
     protected $primaryKey = 'id';
+    
+    protected $fillable = [
+        'nama',
+    ];
 }

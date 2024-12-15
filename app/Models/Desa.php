@@ -10,4 +10,8 @@ class Desa extends Model
     use HasFactory;
     protected $table = "desa";
     protected $primaryKey = 'id';
+    
+    protected $fillable = [
+        'nama',
+    ];
 }

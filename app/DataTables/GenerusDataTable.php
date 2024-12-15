@@ -25,7 +25,7 @@ class GenerusDataTable extends DataTable
                 return $generus->desa->nama;
             })
             ->addColumn('action', function (Generus $generus) {
-                return view('pages/apps.generus-management.columns._actions', compact('generus'));
+                return view('pages/apps.generus-management.generus.columns._actions', compact('generus'));
             })
             ->filterColumn('nama', function ($query, $keyword) {
                 // Ensure case-insensitive search by converting both to lowercase
@@ -36,22 +36,7 @@ class GenerusDataTable extends DataTable
     }
     public function query(Generus $model): QueryBuilder
     {
-        // if (Auth::check()) {
-        //     $user = Auth::user(); // Get the authenticated user
-        //     $roles = $user->getRoleNames(); 
-    
-        //     if ($roles[0] === 'pjp') {
-        //         return $model->newQuery()
-        //             ->join('dpt', function ($join) use ($user) {
-        //                 $join->on('dpt.id_tps', '=', 'tps.id_tps') // Assumes the Tps model's table is 'tps'
-        //                      ->where('dpt.id_user', '=', $user->id);
-        //             })
-        //             ->with('desa','kelompok'); // You can still eager load 'district' if needed
-        //     }
-        // } 
-
         return $model->newQuery()->with('desa', 'kelompok');
-        
     }
     
     public function html(): HtmlBuilder
@@ -64,7 +49,7 @@ class GenerusDataTable extends DataTable
             ->addTableClass('table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer text-gray-600 fw-semibold')
             ->setTableHeadClass('text-start text-muted fw-bold fs-7 text-uppercase gs-0')
             ->orderBy(0)
-            ->drawCallback("function() {" . file_get_contents(resource_path('views/pages/apps/dpt-management/columns/_draw-scripts.js')) . "}");
+            ->drawCallback("function() {" . file_get_contents(resource_path('views/pages/apps/generus-management/generus/columns/_draw-scripts.js')) . "}");
     }
     public function getColumns(): array
     {

@@ -52,19 +52,19 @@
 
                     <!--begin::Title-->
                     <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">
-                        Lanjutkan Pembangunan
+                        Data Gentulbar
                     </h1>
                     <!--end::Title-->
 
                     <!--begin::Text-->
-                    <div class="d-none d-lg-block text-white fs-base text-center">
+                    {{-- <div class="d-none d-lg-block text-white fs-base text-center">
                         Hitung cepat, <a href="#" class="opacity-75-hover text-warning fw-bold me-1">pemilihan daerah</a>
 
                         dengan mudah, akurat<br/> dan pengarsipan bukti di tps
 
                         <a href="#" class="opacity-75-hover text-warning fw-bold me-1">Halmahera Tengah</a>
                         untuk fogogoru <br/> lanjutkan dan sukseskan dengan sdm handal.
-                    </div>
+                    </div> --}}
                     <!--end::Text-->
                 </div>
                 <!--end::Content-->

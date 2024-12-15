@@ -20,7 +20,7 @@
                 <!--end::Notice-->
                 <!--end::Notice-->
                 <!--begin::Form-->
-                <form id="kt_modal_add_desa_form" class="form" action="#" wire:submit.prevent="submit">
+                <form id="kt_modal_desa_form" class="form" action="#" wire:submit.prevent="submit">
                     <!--begin::Input group-->
                     <div class="fv-row mb-7">
                         <!--begin::Label-->
@@ -38,7 +38,7 @@
                     <!--begin::Actions-->
                     <div class="text-center pt-15">
                         <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal" aria-label="Close" wire:loading.attr="disabled">Discard</button>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" data-kt-desa-modal-action="submit">
                             <span class="indicator-label" wire:loading.remove>Submit</span>
                             <span class="indicator-progress" wire:loading wire:target="submit">
                                 Please wait...

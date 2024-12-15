@@ -60,18 +60,7 @@ mix.sass(`${dir}/sass/style.scss`, `public/assets/css/style.bundle.css`, {sassOp
 (glob.sync(`resources/mix/vendors/**/*.scss`) || []).forEach(file => {
     mix.sass(file, `public/assets/${file.replace('resources/mix/vendors/', 'plugins/custom/').replace('scss', 'css')}`);
 });
-// (glob.sync(`resources/mix/vendors/**/*.js`) || []).forEach(file => {
-//     mix.scripts(require('./' + file), `public/assets/${file.replace(path.normalize('resources/mix/vendors/'), 'plugins/custom/')}`);
-// });
-// (glob.sync(`resources/mix/vendors/**/*.scss`) || []).forEach(file => {
-//     mix.sass(file, `public/assets/${file.replace(path.normalize('resources/mix/vendors/'), 'plugins/custom/').replace('scss', 'css')}`);
-// });
 
-// JS pages (single page use)
-// (glob.sync(`${dir}/js/custom/**/*.js`) || []).forEach(file => {
-//     var output = `public/assets${file.replace(path.normalize(dir), '')}`;
-//     mix.scripts(file, output);
-// });
 (glob.sync(`${dir}/js/custom/**/*.js`) || []).forEach(file => {
     var output = `public/assets/${file.replace(`${dir}/`, '')}`;
     mix.scripts(file, output);

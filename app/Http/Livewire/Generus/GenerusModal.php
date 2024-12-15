@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Generus;
 
-use App\Models\User;
+use App\Models\Jenjang;
+use App\Models\Desa;
+use App\Models\Kelompok;
 use App\Models\Generus;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -22,7 +24,8 @@ class GenerusModal extends Component
     public $jenjang;
     public $kelaskbm;
     public $nig;
-    public $ttl;
+    public $tempat_lahir;
+    public $tanggal_lahir;
     public $ayah;
     public $ibu;
     public $nohp;
@@ -46,8 +49,11 @@ class GenerusModal extends Component
         return [
             'id_generus' => 'required',
             'nama' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
             'gender' => 'required',
             'alamat' => 'required',
+            'nohp' => 'required',
 
             'jenjang' => 'required|exists:jenjang,id',
             'kelompok' => 'required|exists:kelompok,id',
@@ -62,7 +68,8 @@ class GenerusModal extends Component
 
     public function render()
     {   
-        return view('livewire.generus.edit-generus-modal');
+        $jenjang = Jenjang::all();
+        return view('livewire.generus.generus-modal', compact('jenjang'));
     }
     
     

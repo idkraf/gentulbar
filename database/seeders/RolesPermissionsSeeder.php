@@ -23,11 +23,18 @@ class RolesPermissionsSeeder extends Seeder
         $permissions_by_role = [
             'administrator' => [
                 'user_management',
+                'user_pjp',
+                'generus',
+                'jenjang',
+                'desa',
+                'kelompok'
             ],
             'kordes' => [
+                'user_pjp',
+                'kelompok'
             ],
             'pjp' => [
-
+                'generus',
             ],
         ];
 

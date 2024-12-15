@@ -26,6 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'last_login_at',
         'last_login_ip',
         'profile_photo_path',
+        'desa',
     ];
 
     /**
@@ -48,6 +49,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'last_login_at' => 'datetime',
     ];
 
+    public function desa()
+    {
+        return $this->belongsTo(Desa::class, 'desa');
+    }
     public function getProfilePhotoUrlAttribute()
     {
         if ($this->profile_photo_path) {

@@ -10,4 +10,8 @@ class Jenjang extends Model
     use HasFactory;
     protected $table = "jenjang";
     protected $primaryKey = 'id';
+    
+    protected $fillable = [
+        'nama',
+    ];
 }

@@ -1,4 +1,4 @@
-<div class="modal fade" id="kt_modal_add_jenjang" tabindex="-1" aria-hidden="true" wire:ignore.self>
+<div class="modal fade" id="kt_modal_jenjang" tabindex="-1" aria-hidden="true" wire:ignore.self>
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <!--begin::Modal content-->
@@ -20,7 +20,7 @@
                 <!--end::Notice-->
                 <!--end::Notice-->
                 <!--begin::Form-->
-                <form id="kt_modal_add_jenjang_form" class="form" action="#" wire:submit.prevent="submit">
+                <form id="kt_modal_jenjang_form" class="form" action="#" wire:submit.prevent="submit">
                     <!--begin::Input group-->
                     <div class="fv-row mb-7">
                         <!--begin::Label-->
@@ -29,7 +29,7 @@
                         </label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input class="form-control form-control-solid" placeholder="Enter a desa name" name="nama" wire:model.defer="nama"/>
+                        <input class="form-control form-control-solid" placeholder="Enter a name" name="nama" wire:model.defer="nama"/>
                         <!--end::Input-->
                         @error('nama')
                         <span class="text-danger">{{ $message }}</span> @enderror
@@ -38,7 +38,7 @@
                     <!--begin::Actions-->
                     <div class="text-center pt-15">
                         <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal" aria-label="Close" wire:loading.attr="disabled">Discard</button>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" data-kt-jenjang-modal-action="submit">
                             <span class="indicator-label" wire:loading.remove>Submit</span>
                             <span class="indicator-progress" wire:loading wire:target="submit">
                                 Please wait...
