@@ -56,3 +56,13 @@
     </div>
     <!--end::Modal dialog-->
 </div>
+
+@push('scripts')
+    <script>
+        const modal = document.querySelector('#kt_modal_jenjang');
+
+        modal.addEventListener('show.bs.modal', (e) => {
+            Livewire.emit('modal.show.jenjang_name', e.relatedTarget.getAttribute('data-jenjang-id'));
+        });
+    </script>
+@endpush

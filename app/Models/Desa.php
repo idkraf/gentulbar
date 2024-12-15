@@ -12,6 +12,6 @@ class Desa extends Model
     protected $primaryKey = 'id';
     
     protected $fillable = [
-        'nama',
+        'nama'
     ];
 }

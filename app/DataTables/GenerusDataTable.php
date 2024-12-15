@@ -54,7 +54,7 @@ class GenerusDataTable extends DataTable
     public function getColumns(): array
     {
         $columns = [
-            Column::make('nama')>title('Nama Generus')->name('nama')->searchable(false)->sortable(false),
+            Column::make('nama')->title('Nama Generus')->name('nama')->searchable(false)->sortable(false),
             Column::make('kelompok')->title('Kelompok')->name('kelompok')->searchable(false)->sortable(false),
             Column::make('desa')->title('Desa')->name('desa')->sortable(false)->searchable(true),
             Column::computed('action')

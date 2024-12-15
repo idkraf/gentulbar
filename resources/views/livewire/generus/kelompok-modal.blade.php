@@ -56,3 +56,13 @@
     </div>
     <!--end::Modal dialog-->
 </div>
+
+@push('scripts')
+    <script>
+        const modal = document.querySelector('#kt_modal_kelompok');
+
+        modal.addEventListener('show.bs.modal', (e) => {
+            Livewire.emit('modal.show.kelompok_name', e.relatedTarget.getAttribute('data-kelompok-id'));
+        });
+    </script>
+@endpush

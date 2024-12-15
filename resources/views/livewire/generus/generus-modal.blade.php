@@ -45,7 +45,7 @@
                             @error('tanggal_lahir')
                             <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-
+                        @if(isset($jenjang) && $jenjang->isNotEmpty())
                         <div class="mb-7">
                             <label class="required fw-semibold fs-6 mb-5">Jenjang</label>
                             @error('jenjang')
@@ -65,7 +65,12 @@
                                     <div class='separator separator-dashed my-5'></div>
                                 @endif
                             @endforeach
-                        </div>
+                        </div> 
+                        @else
+                            <p>No jenjang data available.</p>
+                        @endif
+                        
+                        @if(isset($desa) && $desa->isNotEmpty())
                         <div class="mb-7">
                             <label class="required fw-semibold fs-6 mb-5">Desa</label>
                             @error('desa')
@@ -86,6 +91,11 @@
                                 @endif
                             @endforeach
                         </div>
+                        @else
+                            <p>No Desa data available.</p>
+                        @endif
+                        
+                        @if(isset($kelompok) && $kelompok->isNotEmpty())
                         <div class="mb-7">
                             <label class="required fw-semibold fs-6 mb-5">Kelompok</label>
                             @error('kelompok')
@@ -107,6 +117,9 @@
                             @endforeach
                         </div>
 
+                        @else
+                            <p>No Desa data available.</p>
+                        @endif
 
                     </div>
                     @can('write generus')

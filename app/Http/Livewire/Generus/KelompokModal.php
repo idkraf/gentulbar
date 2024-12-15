@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Generus;
 use Livewire\Component;
 use App\Models\Kelompok;
 
-class KElompokModal extends Component
+class KelompokModal extends Component
 {
     public $nama;
 

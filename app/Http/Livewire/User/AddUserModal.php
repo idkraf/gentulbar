@@ -42,12 +42,8 @@ class AddUserModal extends Component
 
         $roles_description = [
             'administrator' => 'Best for business owners and company administrators',
-            'petugas' => 'Untuk petugas update data pemilihan suara',
-            'viewer' => 'Untuk pengunjung',
-            'developer' => 'Best for developers or people primarily using the API',
-            'analyst' => 'Best for people who need full access to analytics data, but don\'t need to update business settings',
-            'support' => 'Best for employees who regularly refund payments and respond to disputes',
-            'trial' => 'Best for people who need to preview content data, but don\'t need to make any updates',
+            'kordes' => 'Untuk petugas koordinator desa',
+            'pjp' => 'Untuk petugas penanggung jawab kelompok',
         ];
 
         foreach ($roles as $i => $role) {

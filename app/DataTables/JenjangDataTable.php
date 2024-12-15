@@ -22,9 +22,9 @@ class JenjangDataTable extends DataTable
             ->editColumn('nama', function (Jenjang $jenjang) {
                 return ucwords($jenjang->nama);
             })
-            ->editColumn('created_at', function (Jenjang $jenjang) {
-                return $jenjang->created_at->format('d M Y, h:i a');
-            })
+            // ->editColumn('created_at', function (Jenjang $jenjang) {
+            //     return $jenjang->created_at->format('d M Y, h:i a');
+            // })
             ->addColumn('actions', function (Jenjang $jenjang) {
                 return view('pages/apps.generus-management.jenjang.columns._actions', compact('jenjang'));
             })
@@ -62,7 +62,7 @@ class JenjangDataTable extends DataTable
     {
         return [
             Column::make('nama'),
-            Column::make('created_at')->addClass('text-nowrap'),
+            // Column::make('created_at')->addClass('text-nowrap'),
             Column::computed('actions')
                 ->addClass('text-end text-nowrap')
                 ->exportable(false)

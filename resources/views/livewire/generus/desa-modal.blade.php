@@ -29,7 +29,7 @@
                         </label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input class="form-control form-control-solid" placeholder="Enter a desa name" name="nama" wire:model.defer="nama"/>
+                        <input class="form-control form-control-solid" placeholder="Enter a desa name" name="nama" wire:model.defer="nama" value="{{ old('nama', $nama ?? '') }}"/>
                         <!--end::Input-->
                         @error('nama')
                         <span class="text-danger">{{ $message }}</span> @enderror
@@ -56,3 +56,19 @@
     </div>
     <!--end::Modal dialog-->
 </div>
+
+@push('scripts')
+<script>
+        // Modal event listener for Livewire
+        const modal = document.querySelector('#kt_modal_desa');
+    if (modal) {
+        modal.addEventListener('show.bs.modal', (e) => {
+            const desaId = e.relatedTarget.getAttribute('data-desa-id');
+            if (desaId) {
+                Livewire.emit('modal.show.desa_name', desaId);
+            }
+        });
+    }
+</script>
+
+@endpush

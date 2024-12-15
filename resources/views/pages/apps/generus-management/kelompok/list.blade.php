@@ -25,8 +25,6 @@
                         Add Kelompok
                     </button>
                 </div>
-                {{-- <livewire:generus.add-generus-modal></livewire:generus.add-generus-modal>
-                <livewire:generus.edit-generus-modal></livewire:generus.edit-generus-modal> --}}
             </div>
             
 		    @endcan
@@ -50,7 +48,6 @@
             });
             document.addEventListener('livewire:load', function () {
                 Livewire.on('success', function () {
-                    // $('#kt_modal_add_generus').modal('hide');
                     $('#kt_modal_kelompok').modal('hide');
                     window.LaravelDataTables['kelompok-table'].ajax.reload();
                 });

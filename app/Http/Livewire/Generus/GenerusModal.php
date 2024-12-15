@@ -69,7 +69,9 @@ class GenerusModal extends Component
     public function render()
     {   
         $jenjang = Jenjang::all();
-        return view('livewire.generus.generus-modal', compact('jenjang'));
+        $desa = Desa::all();
+        $kelompok = Kelompok::all();
+        return view('livewire.generus.generus-modal', compact('jenjang','desa','kelompok'));
     }
     
     

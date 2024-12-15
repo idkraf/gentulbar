@@ -22,9 +22,9 @@ class DesaDataTable extends DataTable
             ->editColumn('nama', function (Desa $desa) {
                 return ucwords($desa->nama);
             })
-            ->editColumn('created_at', function (Desa $desa) {
-                return $desa->created_at->format('d M Y, h:i a');
-            })
+            // ->editColumn('created_at', function (Desa $desa) {
+            //     return $desa->created_at->format('d M Y, h:i a');
+            // })
             ->addColumn('actions', function (Desa $desa) {
                 return view('pages/apps.generus-management.desa.columns._actions', compact('desa'));
             })
@@ -62,7 +62,7 @@ class DesaDataTable extends DataTable
     {
         return [
             Column::make('nama'),
-            Column::make('created_at')->addClass('text-nowrap'),
+            // Column::make('created_at')->addClass('text-nowrap'),
             Column::computed('actions')
                 ->addClass('text-end text-nowrap')
                 ->exportable(false)

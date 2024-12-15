@@ -22,9 +22,9 @@ class KelompokDataTable extends DataTable
             ->editColumn('nama', function (Kelompok $kelompok) {
                 return ucwords($kelompok->nama);
             })
-            ->editColumn('created_at', function (Kelompok $kelompok) {
-                return $kelompok->created_at->format('d M Y, h:i a');
-            })
+            // ->editColumn('created_at', function (Kelompok $kelompok) {
+            //     return $kelompok->created_at->format('d M Y, h:i a');
+            // })
             ->addColumn('actions', function (Kelompok $kelompok) {
                 return view('pages/apps.generus-management.kelompok.columns._actions', compact('kelompok'));
             })
@@ -62,7 +62,7 @@ class KelompokDataTable extends DataTable
     {
         return [
             Column::make('nama'),
-            Column::make('created_at')->addClass('text-nowrap'),
+            // Column::make('created_at')->addClass('text-nowrap'),
             Column::computed('actions')
                 ->addClass('text-end text-nowrap')
                 ->exportable(false)

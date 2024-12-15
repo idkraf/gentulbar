@@ -14,7 +14,15 @@ class DesaModal extends Component
     protected $rules = [
         'nama' => 'required|string',
     ];
-
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
     // This is the list of listeners that this component listens to.
     protected $listeners = [
         'modal.show.desa_name' => 'mountDesa',

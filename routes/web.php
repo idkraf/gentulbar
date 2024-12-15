@@ -3,6 +3,10 @@
 use App\Http\Controllers\Apps\PermissionManagementController;
 use App\Http\Controllers\Apps\RoleManagementController;
 use App\Http\Controllers\Apps\UserManagementController;
+use App\Http\Controllers\Apps\GenerusManagementController;
+use App\Http\Controllers\Apps\DesaManagementController;
+use App\Http\Controllers\Apps\KelompokManagementController;
+use App\Http\Controllers\Apps\JenjangManagementController;
 
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\DashboardController;
@@ -39,6 +43,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::post('change-password', [ChangePasswordController::class, 'store']);
     Route::get('change-password', [ChangePasswordController::class, 'create'])->name('password.change');
+
+    Route::name('generus-management.')->group(function () {
+        Route::resource('/generus-management/generus', GenerusManagementController::class);
+    });
+
+    Route::name('desa-management.')->group(function () {
+        Route::resource('/desa-management/desa', DesaManagementController::class);
+    });
+    Route::name('kelompok-management.')->group(function () {
+        Route::resource('/kelompok-management/kelompok', KelompokManagementController::class);
+    });
+    Route::name('jenjang-management.')->group(function () {
+        Route::resource('/jenjang-management/jenjang', JenjangManagementController::class);
+    });
 });
 
 Route::get('/error', function () {
