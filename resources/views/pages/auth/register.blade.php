@@ -13,7 +13,7 @@
 
             <!--begin::Subtitle-->
             <div class="text-gray-500 fw-semibold fs-6">
-                Daftarkan akun Fagogoru 2
+                Daftarkan akun Gentulbar
             </div>
             <!--end::Subtitle--->
         </div>

@@ -13,7 +13,7 @@
 
             <!--begin::Subtitle-->
             <div class="text-gray-500 fw-semibold fs-6">
-                Masuk ke akun Fagogoru 2
+                Masuk ke akun Gentulbar
             </div>
             <!--end::Subtitle--->
         </div>
