@@ -9,7 +9,7 @@ class Generus extends Model
 {
     use HasFactory;
     protected $table = "generus";
-    protected $primaryKey = 'id_generus';
+    protected $primaryKey = 'id';
     
     protected $fillable = [
         'nama',
@@ -31,16 +31,16 @@ class Generus extends Model
         'tugas',
         'kerja',
     ];
-    public function desa()
+    public function desas()
     {
-        return $this->belongsTo(Desa::class, 'desa');
+        return $this->belongsTo(Desa::class, 'desa', 'id');
     }
-    public function jenjang()
+    public function jenjangs()
     {
-        return $this->belongsTo(Jenjang::class, 'jenjang');
+        return $this->belongsTo(Jenjang::class, 'jenjang', 'id');
     }
-    public function kelompok()
+    public function kelompoks()
     {
-        return $this->belongsTo(Kelompok::class, 'kelompok');
+        return $this->belongsTo(Kelompok::class, 'kelompok', 'id');
     }
 }

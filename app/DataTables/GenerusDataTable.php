@@ -19,10 +19,10 @@ class GenerusDataTable extends DataTable
                 return $generus->nama;
             })
             ->editColumn('kelompok', function (Generus $generus) {
-                return $generus->kelompok->nama;
+                return $generus->kelompoks->nama;
             })
             ->editColumn('desa', function (Generus $generus) {
-                return $generus->desa->nama;
+                return $generus->desas->nama;
             })
             ->addColumn('action', function (Generus $generus) {
                 return view('pages/apps.generus-management.generus.columns._actions', compact('generus'));
@@ -36,13 +36,13 @@ class GenerusDataTable extends DataTable
     }
     public function query(Generus $model): QueryBuilder
     {
-        return $model->newQuery()->with('desa', 'kelompok');
+        return $model->newQuery()->with('desas', 'kelompoks');
     }
     
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('dpt-generus')
+            ->setTableId('generus-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('rt' . "<'row'<'col-sm-12 col-md-5'l><'col-sm-12 col-md-7'p>>",)

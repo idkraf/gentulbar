@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Password;
 class GenerusModal extends Component
 {
     
-    public $id_generus;
+    public $id_gen;
     public $nama;
     public $gender;
     public $jenjang;
@@ -47,68 +47,75 @@ class GenerusModal extends Component
     protected function rules()
     {
         return [
-            'id_generus' => 'required',
-            'nama' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'gender' => 'required',
-            'alamat' => 'required',
-            'nohp' => 'required',
-
+            'nama' => 'required|string|max:75',
+            'gender' => 'required|string',
             'jenjang' => 'required|exists:jenjang,id',
             'kelompok' => 'required|exists:kelompok,id',
             'desa' => 'required|exists:desa,id',
-
+            'kelaskbm' => 'nullable|string',
+            'nig' => 'nullable|string',
+            'tempat_lahir' => 'nullable|string',
+            'tanggal_lahir' => 'nullable|string',
+            'ayah' => 'nullable|string',
+            'ibu' => 'nullable|string',
+            'nohp' => 'nullable|string',
+            'alamat' => 'nullable|string',
             'sekolah' => 'required|integer|min:0',
             'mondok' => 'required|integer|min:0',
             'tugas' => 'required|integer|min:0',
             'kerja' => 'required|integer|min:0',
+            'keterangan' => 'nullable|string',
         ];
     }
 
     public function render()
     {   
-        $jenjang = Jenjang::all();
-        $desa = Desa::all();
-        $kelompok = Kelompok::all();
-        return view('livewire.generus.generus-modal', compact('jenjang','desa','kelompok'));
+        $jenjangs = Jenjang::all();
+        $desas = Desa::all();
+        $kelompoks = Kelompok::all();
+        return view('livewire.generus.generus-modal', compact('jenjangs','desas','kelompoks'));
     }
     
     
     public function submit()
     {
+        // dd($this->gender,);
         $this->validate();
         
         DB::transaction(function () {
             $data = [
-                'id_generus' => $this->id_generus,
                 'nama' => $this->nama,
                 'gender' => $this->gender,
                 'jenjang' => $this->jenjang,
                 'kelaskbm' => $this->kelaskbm,
                 'nig' => $this->nig,
-                'ttl' => $this->ttl,
+                'tempat_lahir' => $this->tempat_lahir,
+                'tanggal_lahir' => $this->tanggal_lahir,
                 'ayah' => $this->ayah,
                 'ibu' => $this->ibu,
                 'nohp' => $this->nohp,
                 'alamat' => $this->alamat,
                 'kelompok' => $this->kelompok,
                 'desa' => $this->desa,
-                //status
                 'sekolah' => $this->sekolah,
                 'mondok' => $this->mondok,
                 'tugas' => $this->tugas,
                 'kerja' => $this->kerja,
-        
                 'keterangan' => $this->keterangan
             ];
     
-            Generus::updateOrCreate(
-                ['id_generus' => $this->id_generus],
-                $data
-            );
+            if ($this->id_gen != null) {
+                // Update existing record
+                Generus::updateOrCreate(
+                    ['id' => $this->id_gen],
+                    $data
+                );
+            } else {
+                // Insert new record
+                Generus::create($data);
+            }
 
-            $this->emit('success', __('Generus updated'));
+            $this->emit('success', __('Generus saved successfully'));
         });
     }
     
@@ -124,9 +131,10 @@ class GenerusModal extends Component
     }
     public function updateGenerus($id)
     {
-        
+        dd($id);
         $generus = Generus::find($id);
         
+        $this->id_gen = $id;
         $this->nama = $generus->nama;
         $this->gender = $generus->gender;
         $this->jenjang = $generus->jenjang;
