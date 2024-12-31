@@ -6,7 +6,7 @@
             <!--begin::Modal header-->
             <div class="modal-header">
                 <!--begin::Modal title-->
-                <h2 class="fw-bold">Add or Update kelompok</h2>
+                <h2 class="fw-bold">Update kelompok</h2>
                 <!--end::Modal title-->
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal" aria-label="Close">
@@ -21,6 +21,14 @@
                 <!--end::Notice-->
                 <!--begin::Form-->
                 <form id="kt_modal_kelompok_form" class="form" action="#" wire:submit.prevent="submit">
+                    <div class="d-flex flex-column col-sx-12">    
+                        <select id="desa" wire:model.defer="desa" name="desa" class="form-select form-control form-control-solid mb-3 mb-lg-0" required>
+                            <option value="">Select Desa</option>
+                            @foreach($desas as $ds)
+                                <option value="{{ $ds->id }}" {{ $ds->id == $desa ? 'selected' : '' }}>{{ $ds->nama }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <!--begin::Input group-->
                     <div class="fv-row mb-7">
                         <!--begin::Label-->

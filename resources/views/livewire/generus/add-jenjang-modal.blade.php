@@ -1,4 +1,4 @@
-<div class="modal fade" id="kt_modal_update_desa" tabindex="-1" aria-hidden="true" wire:ignore.self>
+<div class="modal fade" id="kt_modal_add_jenjang" tabindex="-1" aria-hidden="true" wire:ignore.self>
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <!--begin::Modal content-->
@@ -6,7 +6,7 @@
             <!--begin::Modal header-->
             <div class="modal-header">
                 <!--begin::Modal title-->
-                <h2 class="fw-bold">Update Desa</h2>
+                <h2 class="fw-bold">Add Jenjang</h2>
                 <!--end::Modal title-->
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal" aria-label="Close">
@@ -18,16 +18,16 @@
             <!--begin::Modal body-->
             <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                 <!--begin::Form-->
-                <form id="kt_modal_update_desa_form" class="form" action="#" wire:submit.prevent="submit">
+                <form id="kt_modal_add_jenjang_form" class="form" action="#" wire:submit.prevent="submit">
                     <!--begin::Input group-->
                     <div class="fv-row mb-7">
                         <!--begin::Label-->
                         <label class="fs-6 fw-semibold form-label mb-2">
-                            <span class="required">Nama Desa</span>
+                            <span class="required">Jenjang</span>
                         </label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input class="form-control form-control-solid" placeholder="Nama desa" name="nama" wire:model.defer="nama"/>
+                        <input class="form-control form-control-solid" placeholder="Jenjang" name="nama" wire:model.defer="nama"/>
                         <!--end::Input-->
                         @error('nama')
                         <span class="text-danger">{{ $message }}</span> @enderror
@@ -36,7 +36,7 @@
                     <!--begin::Actions-->
                     <div class="text-center pt-15">
                         <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal" aria-label="Close" wire:loading.attr="disabled">Discard</button>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" data-kt-add-jenjang-modal-action="submit">
                             <span class="indicator-label" wire:loading.remove>Submit</span>
                             <span class="indicator-progress" wire:loading wire:target="submit">
                                 Please wait...
@@ -54,13 +54,3 @@
     </div>
     <!--end::Modal dialog-->
 </div>
-
-@push('scripts')
-    <script>
-        const modal = document.querySelector('#kt_modal_update_desa');
-
-        modal.addEventListener('show.bs.modal', (e) => {
-            Livewire.emit('modal.show.desa_name', e.relatedTarget.getAttribute('data-desa-id'));
-        });
-    </script>
-@endpush

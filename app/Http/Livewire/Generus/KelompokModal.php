@@ -4,15 +4,18 @@ namespace App\Http\Livewire\Generus;
 
 use Livewire\Component;
 use App\Models\Kelompok;
+use App\Models\Desa;
 
 class KelompokModal extends Component
 {
     public $nama;
+    public $desa;
 
     public Kelompok $kelompok;
 
     protected $rules = [
         'nama' => 'required|string',
+        'desa' => 'required|integer',
     ];
 
     // This is the list of listeners that this component listens to.
@@ -23,7 +26,8 @@ class KelompokModal extends Component
 
     public function render()
     {
-        return view('livewire.generus.kelompok-modal');
+        $desas = Desa::all();
+        return view('livewire.generus.kelompok-modal', compact('desas'));
     }
 
     public function mountKelompok($kelompok_name = '')
@@ -32,6 +36,7 @@ class KelompokModal extends Component
             // Create new
             $this->kelompok = new Kelompok;
             $this->nama = '';
+            $this->desa = '';
             return;
         }
 
@@ -43,7 +48,8 @@ class KelompokModal extends Component
 
         $this->kelompok = $kelompok;
 
-        $this->name = $this->kelompok->nama;
+        $this->nama = $this->kelompok->nama;
+        $this->desa = $this->kelompok->desa;
     }
 
     public function submit()
@@ -51,16 +57,17 @@ class KelompokModal extends Component
         $this->validate();
 
         $this->kelompok->nama = strtolower($this->nama);
+        $this->kelompok->desa = strtolower($this->desa);
         if ($this->kelompok->isDirty()) {
             $this->kelompok->save();
         }
 
-        $this->emit('success', 'Permission updated');
+        $this->emit('success', 'Kelompok updated');
     }
 
-    public function delete($name)
+    public function delete($nama)
     {
-        $kelompok = Kelompok::where('nama', $name)->first();
+        $kelompok = Kelompok::where('nama', $nama)->first();
 
         if (!is_null($kelompok)) {
             $kelompok->delete();

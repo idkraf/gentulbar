@@ -1,14 +1,14 @@
 "use strict";
 
 // Class definition
-var KTDesa = function () {
+var KTAddKelompok = function () {
     // Shared variables
-    const element = document.getElementById('kt_modal_desa');
-    const form = element.querySelector('#kt_modal_desa_form');
+    const element = document.getElementById('kt_modal_add_kelompok');
+    const form = element.querySelector('#kt_modal_add_kelompok_form');
     const modal = new bootstrap.Modal(element);
 
     // Init add schedule modal
-    var initDesa = () => {
+    var initAddKelompok = () => {
 
         // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
         var validator = FormValidation.formValidation(
@@ -36,7 +36,7 @@ var KTDesa = function () {
         );
 
         // Close button handler
-        const closeButton = element.querySelector('[data-kt-desa-modal-action="close"]');
+        const closeButton = element.querySelector('[data-kt-add-kelompok-modal-action="close"]');
         closeButton.addEventListener('click', e => {
             e.preventDefault();
 
@@ -59,7 +59,7 @@ var KTDesa = function () {
         });
 
         // Cancel button handler
-        const cancelButton = element.querySelector('[data-kt-desa-modal-action="cancel"]');
+        const cancelButton = element.querySelector('[data-kt-add-kelompok-modal-action="cancel"]');
         cancelButton.addEventListener('click', e => {
             e.preventDefault();
 
@@ -93,7 +93,7 @@ var KTDesa = function () {
         });
 
         // Submit button handler
-        const submitButton = element.querySelector('[data-kt-desa-modal-action="submit"]');
+        const submitButton = element.querySelector('[data-kt-add-kelompok-modal-action="submit"]');
         submitButton.addEventListener('click', function (e) {
             // Prevent default button action
             e.preventDefault();
@@ -155,12 +155,12 @@ var KTDesa = function () {
     return {
         // Public functions
         init: function () {
-            initDesa();
+            initAddKelompok();
         }
     };
 }();
 
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
-    KTDesa.init();
+    KTAddKelompok.init();
 });

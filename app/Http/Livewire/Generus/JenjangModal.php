@@ -44,7 +44,7 @@ class JenjangModal extends Component
 
         $this->jenjang = $jenjang;
 
-        $this->name = $this->jenjang->nama;
+        $this->nama = $this->jenjang->nama;
     }
 
     public function submit()
@@ -60,9 +60,9 @@ class JenjangModal extends Component
         $this->emit('success', 'Jenjang updated');
     }
 
-    public function delete($name)
+    public function delete($nama)
     {
-        $jenjang = Jenjang::where('nama', $name)->first();
+        $jenjang = Jenjang::where('nama', $nama)->first();
 
         if (!is_null($jenjang)) {
             $jenjang->delete();

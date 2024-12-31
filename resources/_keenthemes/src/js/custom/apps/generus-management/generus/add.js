@@ -1,14 +1,14 @@
 "use strict";
 
 // Class definition
-var KTEditGenerus = function () {
+var KTGenerus = function () {
     // Shared variables
-    const element = document.getElementById('kt_modal_edit_generus');
-    const form = element.querySelector('#kt_modal_edit_generus_form');
+    const element = document.getElementById('kt_modal_generus');
+    const form = element.querySelector('#kt_modal_generus_form');
     const modal = new bootstrap.Modal(element);
 
     // Init add schedule modal
-    var initEditGenerus = () => {
+    var initGenerus = () => {
 
         // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
         var validator = FormValidation.formValidation(
@@ -78,7 +78,7 @@ var KTEditGenerus = function () {
         );
 
         // Submit button handler
-        const submitButton = element.querySelector('[data-kt-edit-generus-modal-action="submit"]');
+        const submitButton = element.querySelector('[data-kt-generus-modal-action="submit"]');
         submitButton.addEventListener('click', e => {
             e.preventDefault();
 
@@ -136,7 +136,7 @@ var KTEditGenerus = function () {
         });
 
         // Cancel button handler
-        const cancelButton = element.querySelector('[data-kt-edit-generus-modal-action="cancel"]');
+        const cancelButton = element.querySelector('[data-kt-generus-modal-action="cancel"]');
         cancelButton.addEventListener('click', e => {
             e.preventDefault();
 
@@ -170,7 +170,7 @@ var KTEditGenerus = function () {
         });
 
         // Close button handler
-        const closeButton = element.querySelector('[data-kt-edit-generus-modal-action="close"]');
+        const closeButton = element.querySelector('[data-kt-generus-modal-action="close"]');
         closeButton.addEventListener('click', e => {
             e.preventDefault();
 
@@ -207,12 +207,12 @@ var KTEditGenerus = function () {
     return {
         // Public functions
         init: function () {
-            initEditGenerus();
+            initGenerus();
         }
     };
 }();
 
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
-    KTEditGenerus.init();
+    KTGenerus.init();
 });

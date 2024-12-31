@@ -1,3 +1,9 @@
+// Add click event listener to update buttons
+document.querySelectorAll('[data-kt-action="update_row"]').forEach(function (element) {
+    element.addEventListener('click', function () {
+        Livewire.emit('update_generus', this.getAttribute('data-generus-id'));
+    });
+});
 // Add click event listener to delete buttons
 document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (element) {
     element.addEventListener('click', function (e) {

@@ -25,8 +25,7 @@
                         Add Generus
                     </button>
                 </div>
-                {{-- <livewire:generus.add-generus-modal></livewire:generus.add-generus-modal>
-                <livewire:generus.edit-generus-modal></livewire:generus.edit-generus-modal> --}}
+                <livewire:generus.generus-modal></livewire:generus.generus-modal>
             </div>
             
 		    @endcan
@@ -40,7 +39,7 @@
         </div>
     </div>
     
-    <livewire:generus.generus-modal></livewire:generus.generus-modal>
+    <livewire:generus.edit-generus-modal></livewire:generus.edit-generus-modal>
     
     @push('scripts')
         {{ $dataTable->scripts() }}
@@ -51,6 +50,7 @@
             document.addEventListener('livewire:load', function () {
                 Livewire.on('success', function () {
                     $('#kt_modal_generus').modal('hide');
+                    $('#kt_modal_edit_generus').modal('hide');
                     // $('#kt_modal_edit_generus').modal('hide');
                     window.LaravelDataTables['generus-table'].ajax.reload();
                 });

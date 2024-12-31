@@ -53,7 +53,7 @@ class DesaModal extends Component
         $this->desa = $desa;
 
         // Set the name and checked permissions properties to the role's values.
-        $this->name = $this->desa->nama;
+        $this->nama = $this->desa->nama;
     }
 
     public function submit()
@@ -69,9 +69,9 @@ class DesaModal extends Component
         $this->emit('success', 'Desa updated');
     }
 
-    public function delete($name)
+    public function delete($nama)
     {
-        $desa = Desa::where('nama', $name)->first();
+        $desa = Desa::where('nama', $nama)->first();
 
         if (!is_null($desa)) {
             $desa->delete();

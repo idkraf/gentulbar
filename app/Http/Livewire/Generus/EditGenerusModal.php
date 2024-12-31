@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 
-class GenerusModal extends Component
+class EditGenerusModal extends Component
 {
     
     public $id_gen;
@@ -73,7 +73,7 @@ class GenerusModal extends Component
         $jenjangs = Jenjang::all();
         $desas = Desa::all();
         $kelompoks = Kelompok::all();
-        return view('livewire.generus.generus-modal', compact('jenjangs','desas','kelompoks'));
+        return view('livewire.generus.edit-generus-modal', compact('jenjangs','desas','kelompoks'));
     }
     
     
@@ -104,16 +104,11 @@ class GenerusModal extends Component
                 'keterangan' => $this->keterangan
             ];
     
-            if ($this->id_gen != null) {
-                // Update existing record
-                Generus::updateOrCreate(
-                    ['id' => $this->id_gen],
-                    $data
-                );
-            } else {
-                // Insert new record
-                Generus::create($data);
-            }
+            // Update existing record
+            Generus::updateOrCreate(
+                ['id' => $this->id_gen],
+                $data
+            );
 
             $this->emit('success', __('Generus saved successfully'));
         });

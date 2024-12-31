@@ -37,7 +37,7 @@
                     </button>
                 </div>
                 <!--end::Group actions-->
-                {{-- <livewire:generus.desa-modal></livewire:generus.desa-modal> --}}
+                <livewire:generus.add-desa-modal></livewire:generus.add-desa-modal>
             </div>
             
 		    @endcan
@@ -62,6 +62,7 @@
             document.addEventListener('livewire:load', function () {
                 Livewire.on('success', function () {
                     $('#kt_modal_desa').modal('hide');
+                    $('#kt_modal_add_desa').modal('hide');
                     window.LaravelDataTables['desa-table'].ajax.reload();
                 });
             });

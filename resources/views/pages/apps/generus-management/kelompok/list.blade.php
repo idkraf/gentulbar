@@ -20,10 +20,11 @@
             <div class="card-toolbar">
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                    <button type="button" class="btn btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_kelompok">
+                    <button type="button" class="btn btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_kelompok">
                         {!! getIcon('plus-square','fs-3', '', 'i') !!}
                         Add Kelompok
                     </button>
+                    <livewire:generus.add-kelompok-modal></livewire:generus.add-kelompok-modal>
                 </div>
             </div>
             
@@ -49,6 +50,7 @@
             document.addEventListener('livewire:load', function () {
                 Livewire.on('success', function () {
                     $('#kt_modal_kelompok').modal('hide');
+                    $('#kt_modal_add_kelompok').modal('hide');
                     window.LaravelDataTables['kelompok-table'].ajax.reload();
                 });
             });

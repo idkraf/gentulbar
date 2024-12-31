@@ -1,14 +1,14 @@
-<div class="modal fade" id="kt_modal_generus" tabindex="-1" aria-hidden="true" wire:ignore.self>
+<div class="modal fade" id="kt_modal_edit_generus" tabindex="-1" aria-hidden="true" wire:ignore.self>
     <div class="modal-dialog modal-dialog-centered mw-1000px">
         <div class="modal-content">
-            <div class="modal-header" id="kt_modal_generus_header">
-                <h2 class="fw-bold">Add Generus</h2>
+            <div class="modal-header" id="kt_modal_edit_generus_header">
+                <h2 class="fw-bold">Edit Generus</h2>
                 <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal" aria-label="Close">
                     {!! getIcon('cross','fs-1') !!}
                 </div>
             </div>
             <div class="modal-body px-5 my-7">
-                <form id="kt_modal_generus_form" class="form" action="#" wire:submit.prevent="submit" enctype="multipart/form-data">
+                <form id="kt_modal_edit_generus_form" class="form" action="#" wire:submit.prevent="submit" enctype="multipart/form-data">
                     
                     <input type="hidden" wire:model.defer="id_gen"  name="id_gen" value="{{ $id_gen }}" required>
                     <div class="d-flex flex-column scroll-y px-5 px-lg-10" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
@@ -308,7 +308,7 @@
                     @can('write generus')
                     <div class="text-center pt-15">
                         <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal" aria-label="Close" wire:loading.attr="disabled">Discard</button>
-                        <button type="submit" class="btn btn-primary" data-kt-generus-modal-action="submit">
+                        <button type="submit" class="btn btn-primary" data-kt-edit-generus-modal-action="submit">
                             <span class="indicator-label" wire:loading.remove>Submit</span>
                             <span class="indicator-progress" wire:loading wire:target="submit">
                                 Please wait...

@@ -20,10 +20,11 @@
             <div class="card-toolbar">
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                    <button type="button" class="btn btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_jenjang">
+                    <button type="button" class="btn btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_jenjang">
                         {!! getIcon('plus-square','fs-3', '', 'i') !!}
                         Add Jenjang
                     </button>
+                    <livewire:generus.add-jenjang-modal></livewire:generus.add-jenjang-modal>
                 </div>
             </div>
             
@@ -44,13 +45,14 @@
         {{ $dataTable->scripts() }}
         <script>
             document.getElementById('mySearchInput').addEventListener('keyup', function () {
-                window.LaravelDataTables['generus-table'].search(this.value).draw();
+                window.LaravelDataTables['jenjang-table'].search(this.value).draw();
             });
             document.addEventListener('livewire:load', function () {
                 Livewire.on('success', function () {
                     // $('#kt_modal_add_generus').modal('hide');
-                    $('#kt_modal_generus').modal('hide');
-                    window.LaravelDataTables['generus-table'].ajax.reload();
+                    $('#kt_modal_jenjang').modal('hide');
+                    $('#kt_modal_add_jenjang').modal('hide');
+                    window.LaravelDataTables['jenjang-table'].ajax.reload();
                 });
             });
         </script>

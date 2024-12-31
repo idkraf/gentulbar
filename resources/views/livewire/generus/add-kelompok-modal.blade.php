@@ -1,4 +1,4 @@
-<div class="modal fade" id="kt_modal_add_desa" tabindex="-1" aria-hidden="true" wire:ignore.self>
+<div class="modal fade" id="kt_modal_add_kelompok" tabindex="-1" aria-hidden="true" wire:ignore.self>
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <!--begin::Modal content-->
@@ -6,7 +6,7 @@
             <!--begin::Modal header-->
             <div class="modal-header">
                 <!--begin::Modal title-->
-                <h2 class="fw-bold">Add Desa</h2>
+                <h2 class="fw-bold">Add kelompok</h2>
                 <!--end::Modal title-->
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal" aria-label="Close">
@@ -20,19 +20,24 @@
                 <!--end::Notice-->
                 <!--end::Notice-->
                 <!--begin::Form-->
-                <form id="kt_modal_add_desa_form" class="form" action="#" wire:submit.prevent="submit">
+                <form id="kt_modal_add_kelompok_form" class="form" action="#" wire:submit.prevent="submit">
+                    <div class="d-flex flex-column col-sx-12">    
+                        <select id="desa" wire:model.defer="desa" name="desa" class="form-select form-control form-control-solid mb-3 mb-lg-0" required>
+                            <option value="">Select Desa</option>
+                            @foreach($desas as $ds)
+                                <option value="{{ $ds->id }}" {{ $ds->id == $desa ? 'selected' : '' }}>{{ $ds->nama }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <!--begin::Input group-->
                     <div class="fv-row mb-7">
                         <!--begin::Label-->
                         <label class="fs-6 fw-semibold form-label mb-2">
-                            <span class="required">Nama Desa</span>
-                            <span class="ms-2" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-html="true" data-bs-content="Desa names is required to be unique.">
-                                {!! getIcon('information','fs-7') !!}
-                            </span>
+                            <span class="required">Nama Kelompok</span>
                         </label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input class="form-control form-control-solid" placeholder="Enter a desa name" name="name" wire:model.defer="nama"/>
+                        <input class="form-control form-control-solid" placeholder="Enter a kelompok name" name="nama" wire:model.defer="nama"/>
                         <!--end::Input-->
                         @error('nama')
                         <span class="text-danger">{{ $message }}</span> @enderror
@@ -41,7 +46,7 @@
                     <!--begin::Actions-->
                     <div class="text-center pt-15">
                         <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal" aria-label="Close" wire:loading.attr="disabled">Discard</button>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" data-kt-add-kelompok-modal-action="submit">
                             <span class="indicator-label" wire:loading.remove>Submit</span>
                             <span class="indicator-progress" wire:loading wire:target="submit">
                                 Please wait...
