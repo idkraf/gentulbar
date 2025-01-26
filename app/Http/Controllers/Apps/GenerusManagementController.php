@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Apps;
 use App\DataTables\GenerusDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Generus;
+use App\Models\Kelompok;
+use App\Models\Desa;
 use Illuminate\Http\Request;
 
 class GenerusManagementController extends Controller
@@ -20,7 +22,9 @@ class GenerusManagementController extends Controller
      */
     public function index(GenerusDataTable $dataTable)
     {
-        return $dataTable->render('pages/apps.generus-management.generus.list');
+        $kelompoks = Kelompok::all(); // Fetch all kelompok
+        $desas = Desa::all(); // Fetch all desa
+        return $dataTable->render('pages/apps.generus-management.generus.list', compact('kelompoks', 'desas'));
     }
 
     /**

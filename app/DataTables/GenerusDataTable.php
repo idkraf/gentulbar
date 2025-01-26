@@ -9,6 +9,7 @@ use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Html\Button;
 
 class GenerusDataTable extends DataTable
 {
@@ -45,18 +46,33 @@ class GenerusDataTable extends DataTable
             ->setTableId('generus-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->dom('rt' . "<'row'<'col-sm-12 col-md-5'l><'col-sm-12 col-md-7'p>>",)
+            ->dom('Bfrtip' . "<'row'<'col-sm-12 col-md-5'l><'col-sm-12 col-md-7'p>>",)
             ->addTableClass('table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer text-gray-600 fw-semibold')
             ->setTableHeadClass('text-start text-muted fw-bold fs-7 text-uppercase gs-0')
             ->orderBy(0)
+            // ->buttons(
+            //     Button::make('excel')->text('Export to Excel'), // Add Excel button
+            //     Button::make('print')->text('Print'), // Optionally, add a print button
+            //     Button::make('reload')->text('Reload') // Optionally, add a reload button
+            // )
+            ->parameters([
+                'initComplete' => "function () {
+                    var api = this.api();
+                    // Add filter for Desa
+                    $('#filter-desa').on('change', function () {
+                        api.column(2).search(this.value).draw();
+                    });
+                }"
+            ])
             ->drawCallback("function() {" . file_get_contents(resource_path('views/pages/apps/generus-management/generus/columns/_draw-scripts.js')) . "}");
     }
+
     public function getColumns(): array
     {
         $columns = [
             Column::make('nama')->title('Nama Generus')->name('nama')->searchable(false)->sortable(false),
-            Column::make('kelompok')->title('Kelompok')->name('kelompok')->searchable(false)->sortable(false),
-            Column::make('desa')->title('Desa')->name('desa')->sortable(false)->searchable(true),
+            Column::make('kelompok')->title('Kelompok')->name('kelompok')->searchable(true)->sortable(false),
+            Column::make('desa')->title('Desa')->name('desa')->searchable(true)->sortable(false),
             Column::computed('action')
             ->addClass('text-start text-nowrap')
             ->exportable(false)
