@@ -99,6 +99,14 @@
                             <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <!--end::Input group-->
+                        
+                        <!--begin::Heading-->
+                        <!--begin::Input group=-->
+                        <div class="fv-row mb-7">
+                            <label class="required fw-semibold fs-6 mb-2">Password</label>
+                            <input placeholder="Password" type="password"  wire:model.defer="password" name="password" class="form-control  form-control-solid mb-3 mb-lg-0">
+                            <!--end::Email-->
+                        </div>
                         <!--begin::Input group-->
                         <div class="mb-7">
                             <!--begin::Label-->
