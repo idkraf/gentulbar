@@ -19,12 +19,65 @@ class GenerusDataTable extends DataTable
             ->editColumn('nama', function (Generus $generus) {
                 return $generus->nama;
             })
+            ->editColumn('nig', function (Generus $generus) {
+                return $generus->nig;
+            })
+            ->editColumn('nohp', function (Generus $generus) {
+                return $generus->nohp;
+            })
             ->editColumn('kelompok', function (Generus $generus) {
                 return $generus->kelompoks->nama;
             })
             ->editColumn('desa', function (Generus $generus) {
                 return $generus->desas->nama;
             })
+            ->editColumn('jenjang', function (Generus $generus) {
+                return $generus->jenjangs->nama;
+            })
+            ->editColumn('gender', function (Generus $generus) {
+                return $generus->gender == "F" ? "Perempuan":"Laki-laki";
+            })
+            ->editColumn('tempat_lahir', function (Generus $generus) {
+                return $generus->tempat_lahir;
+            })
+            ->editColumn('tanggal_lahir', function (Generus $generus) {
+                return $generus->tanggal_lahir;
+            })
+            ->editColumn('ayah', function (Generus $generus) {
+                return $generus->ayah;
+            })
+            ->editColumn('ibu', function (Generus $generus) {
+                return $generus->ibu;
+            })
+            ->editColumn('alamat', function (Generus $generus) {
+                return $generus->alamat;
+            })
+            ->editColumn('sekolah', function (Generus $generus) {
+                return $generus->sekolah ? "Ya" : "Tidak";
+            })
+            ->editColumn('mondok', function (Generus $generus) {
+                return $generus->mondok ? "Ya" : "Tidak";
+            })
+            ->editColumn('tugas', function (Generus $generus) {
+                return $generus->tugas ? "Ya" : "Tidak";
+            })
+            ->editColumn('kerja', function (Generus $generus) {
+                return $generus->kerja ? "Ya" : "Tidak";
+            })
+            // 'gender',
+            // 'jenjang',
+            // 'kelaskbm',
+            // 'nig',
+            // 'tempat_lahir',
+            // 'tanggal_lahir',
+            // 'ayah',
+            // 'ibu',
+            // 'nohp',
+            // 'alamat',
+            // 'sekolah',
+            // 'mondok',
+            // 'tugas',
+            // 'kerja',
             ->addColumn('action', function (Generus $generus) {
                 return view('pages/apps.generus-management.generus.columns._actions', compact('generus'));
             })
@@ -71,8 +124,22 @@ class GenerusDataTable extends DataTable
     {
         $columns = [
             Column::make('nama')->title('Nama Generus')->name('nama')->searchable(false)->sortable(false),
+            Column::make('nig')->title('NIG')->name('nig')->searchable(false)->sortable(false),
+            Column::make('nohp')->title('No HP')->name('nohp')->searchable(false)->sortable(false),
             Column::make('kelompok')->title('Kelompok')->name('kelompok')->searchable(true)->sortable(false),
             Column::make('desa')->title('Desa')->name('desa')->searchable(true)->sortable(false),
+            Column::make('jenjang')->title('Jenjang')->name('jenjang')->searchable(false)->sortable(false),
+            Column::make('gender')->title('Jenis Kelamin')->name('gender')->searchable(false)->sortable(false),
+            Column::make('tempat_lahir')->title('Tempat Lahir')->name('tempat_lahir')->searchable(false)->sortable(false),
+            Column::make('tanggal_lahir')->title('Tanggal Lahir')->name('tanggal_lahir')->searchable(false)->sortable(false),
+            Column::make('ayah')->title('Ayah')->name('ayah')->searchable(false)->sortable(false),
+            Column::make('ibu')->title('Ibu')->name('ibu')->searchable(false)->sortable(false),
+            Column::make('alamat')->title('Alamat')->name('alamat')->searchable(false)->sortable(false),
+            Column::make('alamat')->title('Alamat')->name('alamat')->searchable(false)->sortable(false),
+            Column::make('sekolah')->title('Sekolah')->name('sekolah')->searchable(false)->sortable(false),
+            Column::make('mondok')->title('Mondok')->name('mondok')->searchable(false)->sortable(false),
+            Column::make('tugas')->title('Tugas')->name('setugaskolah')->searchable(false)->sortable(false),
+            Column::make('kerja')->title('Kerja')->name('kerja')->searchable(false)->sortable(false),
             Column::computed('action')
             ->addClass('text-start text-nowrap')
             ->exportable(false)
